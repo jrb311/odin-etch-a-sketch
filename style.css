@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 730px;
+    padding-right: 730px;
+    padding-top: 300px;
+    padding-bottom: 300px;
+}
+
+.childSquare{
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+}
