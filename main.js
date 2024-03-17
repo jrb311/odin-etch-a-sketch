@@ -26,10 +26,12 @@ buttonContainer.appendChild(gridButton);
 body.insertBefore(buttonContainer, container);
 
 gridButton.addEventListener('click', () => {
+    let gridSize;
+    
     while (true) {
-    let gridSize = parseInt(prompt('Please enter the number of squares per side for your new grid:'));
+    gridSize = parseInt(prompt('Please enter the number of squares per side for your new grid:'));
 
-        if (gridSize !== null && gridSize < 100 && !isNaN(gridSize)){
+        if (gridSize !== null && gridSize <= 100 && !isNaN(gridSize)){
             break;
         }
     }
@@ -46,6 +48,7 @@ function createNewGrid(size){
     {
         let newGrid = document.createElement("div");
         newGrid.classList.add("childSquare");
+        newGrid.style.cssText = `height:${400/size}; width:${400/size}; border: 1px solid black;`
         container.appendChild(newGrid);
     }
 };
