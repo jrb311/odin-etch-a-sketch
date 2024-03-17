@@ -6,7 +6,7 @@ for (let i = 0; i < 256; i++)
 {
     const grid = document.createElement("div");
     grid.classList.add("childSquare");
-    grid.style.cssText = `height:${400/16}px; width:${400/16}px; border: 1px solid black; display: inline-block`
+    grid.style.cssText = `height:${400/16}px; width:${400/16}px; border: 1px solid purple; display: inline-block`
     container.appendChild(grid);
 };
 //Run function for coloring the grid on mouseover//
@@ -39,7 +39,7 @@ function colorGrid(){
 
     grid.forEach(element => {
         element.addEventListener('mouseover', (event) =>{
-        event.target.style.backgroundColor = 'purple';
+        event.target.style.backgroundColor = 'gold';
         });
     });
 };
@@ -54,7 +54,7 @@ function createNewGrid(size){
     {
         let newGrid = document.createElement("div");
         newGrid.classList.add("childSquare");
-        newGrid.style.cssText = `height:${400/size}px; width:${400/size}px; border: 1px solid black;`
+        newGrid.style.cssText = `height:${400/size}px; width:${400/size}px; border: 1px solid purple;`
         container.appendChild(newGrid);
     }
 
