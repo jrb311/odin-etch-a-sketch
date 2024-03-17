@@ -27,7 +27,7 @@ body.insertBefore(buttonContainer, container);
 
 gridButton.addEventListener('click', () => {
     let gridSize;
-    
+
     while (true) {
     gridSize = parseInt(prompt('Please enter the number of squares per side for your new grid:'));
 
