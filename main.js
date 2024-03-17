@@ -1,21 +1,17 @@
+//Create global variables for establishing initial grid and create the container for the etch-a-sketch grid//
 let gridNum = 256;
 const container = document.querySelector(".container");
-
+//Create default 16x16 grid//
 for (let i = 0; i < 256; i++)
 {
     const grid = document.createElement("div");
     grid.classList.add("childSquare");
+    grid.style.cssText = `height:${400/16}px; width:${400/16}px; border: 1px solid black; display: inline-block`
     container.appendChild(grid);
 };
-
-const grid = document.querySelectorAll(".childSquare");
-
-grid.forEach(element => {
-    element.addEventListener('mouseover', (event) =>{
-        event.target.style.backgroundColor = 'purple';
-    });
-});
-
+//Run function for coloring the grid on mouseover//
+colorGrid();
+//Create button to prompt user to create a new grid//
 const body = document.querySelector('body');
 const buttonContainer = document.createElement("div");
 const gridButton = document.createElement('button');
@@ -24,7 +20,7 @@ gridButton.style.cssText = "border-radius: 25px; border-color: purple; font-size
 gridButton.textContent = "Generate New Grid";
 buttonContainer.appendChild(gridButton);
 body.insertBefore(buttonContainer, container);
-
+//Add prompt for user input to select new grid size//
 gridButton.addEventListener('click', () => {
     let gridSize;
 
@@ -37,19 +33,32 @@ gridButton.addEventListener('click', () => {
     }
     createNewGrid(gridSize);
 })
+//Define function prototype for coloring the grid on mouseover//
+function colorGrid(){
+    const grid = document.querySelectorAll(".childSquare");
 
-function createNewGrid(size){
-    let grid = document.querySelectorAll('.childSquare');
     grid.forEach(element => {
+        element.addEventListener('mouseover', (event) =>{
+        event.target.style.backgroundColor = 'purple';
+        });
+    });
+};
+//Define function prototype for creating a new grid with user input size//
+function createNewGrid(size){
+    let square = document.querySelectorAll('.childSquare');
+    square.forEach(element => {
         container.removeChild(element);
     });
     
-    for (let n = 0; n < size; n++)
+    for (let n = 0, s = size*size; n < s; n++)
     {
         let newGrid = document.createElement("div");
         newGrid.classList.add("childSquare");
-        newGrid.style.cssText = `height:${400/size}; width:${400/size}; border: 1px solid black;`
+        newGrid.style.cssText = `height:${400/size}px; width:${400/size}px; border: 1px solid black;`
         container.appendChild(newGrid);
     }
+
+    colorGrid();
 };
+
 
