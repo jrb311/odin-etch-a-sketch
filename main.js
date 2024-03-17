@@ -25,3 +25,28 @@ gridButton.textContent = "Generate New Grid";
 buttonContainer.appendChild(gridButton);
 body.insertBefore(buttonContainer, container);
 
+gridButton.addEventListener('click', () => {
+    while (true) {
+    let gridSize = parseInt(prompt('Please enter the number of squares per side for your new grid:'));
+
+        if (gridSize !== null && gridSize < 100 && !isNaN(gridSize)){
+            break;
+        }
+    }
+    createNewGrid(gridSize);
+})
+
+function createNewGrid(size){
+    let grid = document.querySelectorAll('.childSquare');
+    grid.forEach(element => {
+        container.removeChild(element);
+    });
+    
+    for (let n = 0; n < size; n++)
+    {
+        let newGrid = document.createElement("div");
+        newGrid.classList.add("childSquare");
+        container.appendChild(newGrid);
+    }
+};
+
