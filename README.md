@@ -1,0 +1,1 @@
+This project creates an interactive etch-a-sketch that fills the etch-a-sketch grid with color on mouseover. It demonstrates my ability to manipulate and create DOM elements using javascript, my knowledge of how to functionally apply looping to create DOM elements, and my understanding of various javascript functions, methods, and DOM manipulation techniques.
