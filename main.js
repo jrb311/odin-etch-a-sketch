@@ -1,7 +1,7 @@
-//Create global variables for establishing initial grid and create the container for the etch-a-sketch grid//
+//Create global variables for establishing initial grid and create the container for the etch-a-sketch grid
 let gridNum = 256;
 const container = document.querySelector(".container");
-//Create default 16x16 grid//
+//Create default 16x16 grid
 for (let i = 0; i < 256; i++)
 {
     const grid = document.createElement("div");
@@ -9,9 +9,9 @@ for (let i = 0; i < 256; i++)
     grid.style.cssText = `height:${400/16}px; width:${400/16}px; border: 1px solid purple; display: inline-block`
     container.appendChild(grid);
 };
-//Run function for coloring the grid on mouseover//
+//Run function for coloring the grid on mouseover
 colorGrid();
-//Create button to prompt user to create a new grid//
+//Create button to prompt user to create a new grid
 const body = document.querySelector('body');
 const buttonContainer = document.createElement("div");
 const gridButton = document.createElement('button');
@@ -20,7 +20,7 @@ gridButton.style.cssText = "border-radius: 25px; border-color: purple; font-size
 gridButton.textContent = "Generate New Grid";
 buttonContainer.appendChild(gridButton);
 body.insertBefore(buttonContainer, container);
-//Add prompt for user input to select new grid size//
+//Add prompt for user input to select new grid size
 gridButton.addEventListener('click', () => {
     let gridSize;
 
@@ -33,17 +33,17 @@ gridButton.addEventListener('click', () => {
     }
     createNewGrid(gridSize);
 })
-//Define function prototype for coloring the grid on mouseover//
+//Define function prototype for coloring the grid on mouseover
 function colorGrid(){
     const grid = document.querySelectorAll(".childSquare");
 
     grid.forEach(element => {
         element.addEventListener('mouseover', (event) =>{
-        event.target.style.backgroundColor = 'gold';
+        event.target.style.backgroundColor = randomRgb();
         });
     });
 };
-//Define function prototype for creating a new grid with user input size//
+//Define function prototype for creating a new grid with user input size
 function createNewGrid(size){
     let square = document.querySelectorAll('.childSquare');
     square.forEach(element => {
@@ -57,8 +57,19 @@ function createNewGrid(size){
         newGrid.style.cssText = `height:${400/size}px; width:${400/size}px; border: 1px solid purple;`
         container.appendChild(newGrid);
     }
-
     colorGrid();
+};
+//Function to generate random color values for etch-a-sketch
+function randomColor(max){
+    return Math.floor(Math.random()*(max +1));
+
+};
+//Function to generate rgb values
+function randomRgb(){
+    let r = randomColor(255).toString();
+    let g = randomColor(255).toString();
+    let b = randomColor(255).toString();
+    return `rgb(${r},${g},${b})`; 
 };
 
 
