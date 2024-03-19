@@ -5,8 +5,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    padding-left: 745px;
-    padding-right: 745px;
-    padding-top: 230px;
+    align-self: center;
+    padding-top: 150px;
+    height: 800px;
+    width: 800px;
 }
+
+padding-left: 745px;
+padding-right: 745px;
+

@@ -6,7 +6,7 @@ for (let i = 0; i < 256; i++)
 {
     const grid = document.createElement("div");
     grid.classList.add("childSquare");
-    grid.style.cssText = `height:${400/16}px; width:${400/16}px; border: 1px solid purple; display: inline-block`
+    grid.style.cssText = `height:${(100/16) - 0.25}%; width:${(100/16) - 0.25}%; border: 0.25px solid purple;`
     container.appendChild(grid);
 };
 //Run function for coloring the grid on mouseover
@@ -15,6 +15,7 @@ colorGrid();
 const body = document.querySelector('body');
 const buttonContainer = document.createElement("div");
 const gridButton = document.createElement('button');
+body.style.cssText = "display: flex; flex-direction: column";
 buttonContainer.style.cssText = "display: flex; justify-content: center";
 gridButton.style.cssText = "border-radius: 25px; border-color: purple; font-size: 20px; background-color: gold; color: purple";
 gridButton.textContent = "Generate New Grid";
@@ -54,7 +55,7 @@ function createNewGrid(size){
     {
         let newGrid = document.createElement("div");
         newGrid.classList.add("childSquare");
-        newGrid.style.cssText = `height:${400/size}px; width:${400/size}px; border: 1px solid purple;`
+        newGrid.style.cssText = `height:${100/size}%; width:${100/size}%; border: 0.25px solid purple;`
         container.appendChild(newGrid);
     }
     colorGrid();
